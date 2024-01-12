@@ -25,8 +25,9 @@ public class PostazioneService {
     }
 
 
-    public Postazione findById(UUID id) {
+    public Postazione findById(String uuid) {
 
-        return postazioneDAO.findById(id).orElseThrow(() -> new ItemNotFoundExc(id));
+        UUID uuid1 = UUID.fromString(uuid);
+        return postazioneDAO.findById(uuid1).orElseThrow(() -> new ItemNotFoundExc(uuid));
     }
 }
