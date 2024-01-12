@@ -63,9 +63,13 @@ public class MainRunner implements CommandLineRunner {
         Prenotazione pren1FromDb = prenotazioneService.findById(2);
 
 
+        //Salvo la prenotazione con il suo metodo save che ha gia integrato i controlli su utente e postazione
+        // vedi PrenotazioneService.class
         prenotazioneService.savePrenotazione(pren1);
 
 
+        // RICERCA POSTAZIONE PER TIPO E CITTA'
+        postazioneService.findPostazioneByTipoAndCity(TipoPostazione.SALA_RIUNIONI, "Barone a mare");
 
 
       /*  userService.saveUser(u1);

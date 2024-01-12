@@ -17,6 +17,9 @@ public interface PrenotazioneDAO extends JpaRepository<Prenotazione, Long> {
     // se i criteri di ricerca vengono soddisfatti
     List<Prenotazione> findByPostazioneAndDataPrenotazione(Postazione postazione, LocalDate dataPrenotaz);
 
+
+    //Questo metodo filtra le prenotazioni che corrispondono ad un certo user e ad una certa data di prenotazione
+    // e ne ritorna una lista nel caso in cui vi sono elemnti nel db con questa query, altrimenti torna una lista vuota
     List<Prenotazione> findByUtenteAndDataPrenotazione(Utente utente, LocalDate dataPrenotaz);
 
 }

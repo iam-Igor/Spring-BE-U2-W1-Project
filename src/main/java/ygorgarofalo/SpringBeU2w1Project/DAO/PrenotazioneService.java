@@ -19,10 +19,10 @@ public class PrenotazioneService {
 
     //Il metodo save della prenotazione richiama il metodo cerca prenotazione per postazione e data della prenotazione dao
     //Se il metodo torna una lista con degli elementi allora significa che la prenotazione non è disponibile per quella postazione
-    // e per la data indicata, altrimenti salva la prenotazione.
+    // e per la data indicata
 
     //Inoltre il metodo save richiama anche il metodo findByUtenteAndDataPrenotazione che torna una lista di prenotazioni
-    //filtrate per utente e data di prenotazioni qualora ce ne fossero, in questo modo controllo se un utente specifico abbia gia
+    //filtrate per utente e data di prenotazione qualora ce ne fossero, in questo modo controllo se un utente specifico abbia gia
     //una prenotazione salvata in una data specifica
 
     //nel costrutto if / else if gestisco le varie casistiche
@@ -41,7 +41,7 @@ public class PrenotazioneService {
         if (!prenotazioniEsistenti.isEmpty()) {
             System.out.println("Errore, prenotazione non disponibile per la data e la postazione indicate");
         } else if (!prenotazioniEsistentiPerStessaDataEdUser.isEmpty()) {
-            
+
             System.out.println("Errore, l'utente ha gia una prenotazione salvata in data " + prenotazione.getDataPrenotazione());
         } else {
             prenotazioneDAO.save(prenotazione);
@@ -56,11 +56,4 @@ public class PrenotazioneService {
     }
 
 
-    public void search(Prenotazione prenotazione) {
-        LocalDate dataPrenotazione = prenotazione.getDataPrenotazione();
-        Utente user = prenotazione.getUtente();
-        List<Prenotazione> prenotazioniEsistentiPerStessaDataEdUser = prenotazioneDAO.findByUtenteAndDataPrenotazione(user, dataPrenotazione);
-
-        prenotazioniEsistentiPerStessaDataEdUser.forEach(System.out::println);
-    }
 }
