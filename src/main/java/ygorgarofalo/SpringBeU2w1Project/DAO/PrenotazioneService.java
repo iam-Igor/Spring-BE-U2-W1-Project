@@ -56,4 +56,17 @@ public class PrenotazioneService {
     }
 
 
+    public void findPrenotazioneByUtente(Utente user) {
+        List<Prenotazione> found = prenotazioneDAO.findByUtente(user);
+
+        if (found.isEmpty()) {
+            System.out.println("Nessuna prenotazione trovata per l'utente selezionato.");
+
+        } else {
+            System.out.println("Lista prenotazione per l'utente: " + user.getFullname());
+            found.forEach(System.out::println);
+        }
+    }
+
+
 }

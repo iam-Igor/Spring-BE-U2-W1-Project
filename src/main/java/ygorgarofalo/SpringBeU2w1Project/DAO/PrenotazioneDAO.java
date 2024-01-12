@@ -22,4 +22,7 @@ public interface PrenotazioneDAO extends JpaRepository<Prenotazione, Long> {
     // e ne ritorna una lista nel caso in cui vi sono elemnti nel db con questa query, altrimenti torna una lista vuota
     List<Prenotazione> findByUtenteAndDataPrenotazione(Utente utente, LocalDate dataPrenotaz);
 
+
+    List<Prenotazione> findByUtente(Utente user);
+
 }

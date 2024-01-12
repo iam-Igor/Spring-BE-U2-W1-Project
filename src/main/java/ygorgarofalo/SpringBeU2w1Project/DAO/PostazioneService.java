@@ -27,7 +27,7 @@ public class PostazioneService {
     }
 
 
-    public Postazione findById(String uuid) {
+    public Postazione findByUUID(String uuid) {
 
         UUID uuid1 = UUID.fromString(uuid);
         return postazioneDAO.findById(uuid1).orElseThrow(() -> new ItemNotFoundExc(uuid));
@@ -43,6 +43,20 @@ public class PostazioneService {
             postazioneList.forEach(System.out::println);
         }
 
+
+    }
+
+
+    public void findByNumOccupantiTraMinMax(int min, int max) {
+
+        List<Postazione> postazioneList = postazioneDAO.findByNumMaxOccupantiBetween(min, max);
+
+        if (postazioneList.isEmpty()) {
+            System.out.println("Nessuna postazione trovata con numero di post tra:" + min + " e " + max);
+        } else {
+            System.out.println("Trovate le seguenti postazioni con i criteri di ricerca indicati:");
+            postazioneList.forEach(System.out::println);
+        }
 
     }
 }

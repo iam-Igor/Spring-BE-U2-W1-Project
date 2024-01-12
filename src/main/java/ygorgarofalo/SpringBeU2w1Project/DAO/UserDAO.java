@@ -7,5 +7,6 @@ import ygorgarofalo.SpringBeU2w1Project.entities.Utente;
 @Repository
 public interface UserDAO extends JpaRepository<Utente, Long> {
 
+    Utente findByUsername(String username);
 
 }

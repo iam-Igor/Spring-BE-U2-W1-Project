@@ -29,4 +29,17 @@ public class UserService {
         return userDAO.findById(id).orElseThrow(() -> new ItemNotFoundExc(id));
     }
 
+
+    public void findByUsername(String username) {
+
+        Utente found = userDAO.findByUsername(username);
+
+        if (found != null) {
+            System.out.println("Trovato utente con lo username selezionato:");
+            System.out.println(found);
+        } else {
+            System.out.println("Nessun utente trovato con lo username indicato.");
+        }
+    }
+
 }
