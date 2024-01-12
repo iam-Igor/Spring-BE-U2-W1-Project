@@ -3,6 +3,7 @@ package ygorgarofalo.SpringBeU2w1Project.entities;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDate;
 
@@ -10,6 +11,7 @@ import java.time.LocalDate;
 @Table(name = "prenotazioni")
 @NoArgsConstructor
 @Getter
+@ToString
 public class Prenotazione {
 
 

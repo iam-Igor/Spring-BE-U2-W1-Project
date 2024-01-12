@@ -57,9 +57,15 @@ public class MainRunner implements CommandLineRunner {
         Postazione pos2FromDb = postazioneService.findById("935da514-0bd1-4d5c-9e80-fad760ddc6d4");
 
 
-        Prenotazione pren1 = new Prenotazione(u1FromDb, pos1FromDb, LocalDate.of(2024, 02, 12));
+        Prenotazione pren1 = new Prenotazione(u1FromDb, pos1FromDb, LocalDate.of(2024, 02, 14));
+        Prenotazione pren2 = new Prenotazione(u1FromDb, pos2FromDb, LocalDate.of(2024, 02, 14));
 
-        //prenotazioneService.savePrenotazione(pren1);
+        Prenotazione pren1FromDb = prenotazioneService.findById(2);
+
+
+        prenotazioneService.savePrenotazione(pren1);
+
+
 
 
       /*  userService.saveUser(u1);
