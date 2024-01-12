@@ -107,5 +107,9 @@ public class MainRunner implements CommandLineRunner {
         prenotazioneService.findPrenotazioneByUtente(u1FromDb);
 
 
+        //RICERCA POSTAZIONI PER INDIRIZZO CHE INIZIA PER..
+        postazioneService.findPostazioneConIndirizzoCheIniziaPer("Pi");
+
+        
     }
 }

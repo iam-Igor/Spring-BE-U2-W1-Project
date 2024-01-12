@@ -59,4 +59,16 @@ public class PostazioneService {
         }
 
     }
+
+
+    public void findPostazioneConIndirizzoCheIniziaPer(String indirizzo) {
+        List<Postazione> postazioneList = postazioneDAO.findByAddressNameStartingWith(indirizzo);
+
+        if (postazioneList.isEmpty()) {
+            System.out.println("Nessuna postazione con indirizzo che inizia per: " + indirizzo + " trovata.");
+        } else {
+            System.out.println("Lista delle postazioni con indirizzo che inizia per " + indirizzo);
+            postazioneList.forEach(System.out::println);
+        }
+    }
 }

@@ -19,4 +19,8 @@ public interface PostazioneDAO extends JpaRepository<Postazione, UUID> {
 
 
     List<Postazione> findByNumMaxOccupantiBetween(int min, int max);
+
+
+    @Query("SELECT p FROM Postazione p WHERE p.edificio.address LIKE :input%")
+    List<Postazione> findByAddressNameStartingWith(@Param("input") String input);
 }
