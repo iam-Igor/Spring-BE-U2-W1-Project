@@ -33,4 +33,16 @@ public class Prenotazione {
         this.postazione = postazione;
         this.dataPrenotazione = dataPrenotazione;
     }
+
+    public Utente setUtente(Utente utente) {
+        return this.utente = utente;
+    }
+
+    public Postazione setPostazione(Postazione postazione) {
+        return this.postazione = postazione;
+    }
+
+    public void setDataPrenotazione(LocalDate dataPrenotazione) {
+        this.dataPrenotazione = dataPrenotazione;
+    }
 }

@@ -5,8 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import ygorgarofalo.SpringBeU2w1Project.DAO.EdificioService;
+import ygorgarofalo.SpringBeU2w1Project.DAO.PostazioneService;
 import ygorgarofalo.SpringBeU2w1Project.DAO.UserService;
 import ygorgarofalo.SpringBeU2w1Project.entities.Edificio;
+import ygorgarofalo.SpringBeU2w1Project.entities.Postazione;
+import ygorgarofalo.SpringBeU2w1Project.entities.TipoPostazione;
 import ygorgarofalo.SpringBeU2w1Project.entities.Utente;
 
 import java.util.Locale;
@@ -19,6 +22,10 @@ public class MainRunner implements CommandLineRunner {
 
     @Autowired
     EdificioService edificioService;
+
+
+    @Autowired
+    PostazioneService postazioneService;
 
     @Override
     public void run(String... args) throws Exception {
@@ -36,6 +43,12 @@ public class MainRunner implements CommandLineRunner {
         Edificio e2 = new Edificio(faker.company().name(), faker.address().fullAddress(), faker.address().city());
         Edificio e3 = new Edificio(faker.company().name(), faker.address().fullAddress(), faker.address().city());
 
+
+        Postazione p1 = new Postazione("Sala riunioni completa di proiettore puntatore laser", TipoPostazione.SALA_RIUNIONI, 15, e1);
+        Postazione p2 = new Postazione("Comodo spazio privato dotato di ogni comfort", TipoPostazione.PRIVATO, 5, e2);
+
+
+
       /*  userService.saveUser(u1);
         userService.saveUser(u2);
         userService.saveUser(u3);
@@ -46,6 +59,10 @@ public class MainRunner implements CommandLineRunner {
        /*  edificioService.saveEdificio(e1);
         edificioService.saveEdificio(e2);
         edificioService.saveEdificio(e3);*/
+
+
+         /* postazioneService.savePostazione(p1);
+        postazioneService.savePostazione(p2);*/
 
         
     }

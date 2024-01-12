@@ -4,7 +4,6 @@ package ygorgarofalo.SpringBeU2w1Project.entities;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 
 import java.util.UUID;
@@ -13,7 +12,6 @@ import java.util.UUID;
 @Table(name = "postazioni")
 @NoArgsConstructor
 @Getter
-@Setter
 @ToString
 public class Postazione {
 
@@ -23,6 +21,7 @@ public class Postazione {
 
     private String description;
 
+    @Enumerated(EnumType.STRING)
     private TipoPostazione tipoPostazione;
 
     private int numMaxOccupanti;
@@ -36,6 +35,22 @@ public class Postazione {
         this.description = description;
         this.tipoPostazione = tipoPostazione;
         this.numMaxOccupanti = numMaxOccupanti;
-        this.edificio = edificio;
+        this.edificio = setEdificio(edificio);
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setTipoPostazione(TipoPostazione tipoPostazione) {
+        this.tipoPostazione = tipoPostazione;
+    }
+
+    public void setNumMaxOccupanti(int numMaxOccupanti) {
+        this.numMaxOccupanti = numMaxOccupanti;
+    }
+
+    public Edificio setEdificio(Edificio edificio) {
+        return this.edificio = edificio;
     }
 }
